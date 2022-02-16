@@ -52,12 +52,9 @@ resetBtn.addEventListener("click", function () {
 });
 
 function randomColor() {
-  function randomize() {
-    return Math.floor(Math.random() * 256);
-  }
-  const r = randomize();
-  const g = randomize();
-  const b = randomize();
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
   return `rgb(${r}, ${g}, ${b})`;
 }
 
