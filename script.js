@@ -5,7 +5,7 @@ let divs = document.querySelectorAll(".container div");
 let horizontalGridSize;
 let verticalGridSize;
 const divBackgroundColor = "rgb(228, 236, 243)";
-gridDefaultValue = 16;
+const gridDefaultValue = 16;
 
 function requestUserGrid() {
   horizontalGridSize = prompt("Enter horizontal blocks(max 100): ");
