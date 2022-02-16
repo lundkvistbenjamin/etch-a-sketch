@@ -5,6 +5,7 @@ let divs = document.querySelectorAll(".container div");
 let horizontalGridSize;
 let verticalGridSize;
 const divBackgroundColor = "rgb(228, 236, 243)";
+gridDefaultValue = 16;
 
 function requestUserGrid() {
   horizontalGridSize = prompt("Enter horizontal blocks(max 100): ");
@@ -16,12 +17,15 @@ function requestUserGrid() {
     verticalGridSize = prompt("Enter vertical blocks(max 100): ");
   }
   if (horizontalGridSize === null || verticalGridSize === null) {
-    horizontalGridSize = 16;
-    verticalGridSize = 16;
+    horizontalGridSize = gridDefaultValue;
+    verticalGridSize = gridDefaultValue;
   }
 }
 
-function createDivs(horizontalGridSize = 16, verticalGridSize = 16) {
+function createDivs(
+  horizontalGridSize = gridDefaultValue,
+  verticalGridSize = gridDefaultValue
+) {
   for (let i = 0; i < horizontalGridSize * verticalGridSize; i++) {
     let div = document.createElement("div");
     container.appendChild(div);
