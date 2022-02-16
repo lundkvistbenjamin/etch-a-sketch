@@ -4,15 +4,20 @@ let divs = document.querySelectorAll(".container div");
 
 let horizontalGridSize;
 let verticalGridSize;
+const divBackgroundColor = "rgb(228, 236, 243)";
 
 function requestUserGrid() {
-  horizontalGridSize = prompt("Enter horizontal blocks: ");
-  if (horizontalGridSize >= 100) {
+  horizontalGridSize = prompt("Enter horizontal blocks(max 100): ");
+  while (horizontalGridSize > 100 || horizontalGridSize) {
     horizontalGridSize = prompt("Enter horizontal blocks(max 100): ");
   }
-  verticalGridSize = prompt("Enter vertical blocks: ");
-  if (verticalGridSize >= 100) {
-    verticalGridSize = prompt("Enter horizontal blocks(max 100): ");
+  verticalGridSize = prompt("Enter vertical blocks(max 100): ");
+  while (verticalGridSize > 100) {
+    verticalGridSize = prompt("Enter vertical blocks(max 100): ");
+  }
+  if (horizontalGridSize === null || verticalGridSize === null) {
+    horizontalGridSize = 16;
+    verticalGridSize = 16;
   }
 }
 
@@ -30,9 +35,9 @@ function createDivs(horizontalGridSize = 16, verticalGridSize = 16) {
 
 function resetDivs() {
   container.innerHTML = "";
-  let divs = document.querySelector(".container").children;
-  for (const div of divs) {
-    div.style.backgroundColor = "rgb(228, 236, 243)";
+  let children = document.querySelector(".container").children;
+  for (const child of children) {
+    child.style.backgroundColor = divBackgroundColor;
   }
 }
 
@@ -43,9 +48,12 @@ resetBtn.addEventListener("click", function () {
 });
 
 function randomColor() {
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 256);
-  const b = Math.floor(Math.random() * 256);
+  function randomize() {
+    return Math.floor(Math.random() * 256);
+  }
+  const r = randomize();
+  const g = randomize();
+  const b = randomize();
   return `rgb(${r}, ${g}, ${b})`;
 }
 
