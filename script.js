@@ -9,7 +9,7 @@ const gridDefaultValue = 16;
 
 function requestUserGrid() {
   horizontalGridSize = prompt("Enter horizontal blocks(max 100): ");
-  while (horizontalGridSize > 100 || horizontalGridSize) {
+  while (horizontalGridSize > 100) {
     horizontalGridSize = prompt("Enter horizontal blocks(max 100): ");
   }
   verticalGridSize = prompt("Enter vertical blocks(max 100): ");
